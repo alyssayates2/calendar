@@ -5,8 +5,9 @@
             <li><%= link_to "Signup", new_user_registration_path %></li>
             <li><%= link_to "Login", new_user_session_path %></li>
         <% else %>
-            <li><%= current_user.email %></li>
-            <li><%= link_to "Logout", destroy_user_session_path, method:"delete"  %></li>
+            <li><%= link_to "New To Do", new_todo_path %></li>
+            <li><%= link_to "List of Your To Do's", todos_path %></li>
+            <li><%= link_to "Logout", destroy_user_session_path, method:"delete"  %> :  <%= current_user.email %></li>
         <% end %>
     </ul>
 </nav>

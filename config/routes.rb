@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
+  resources :todo_categories
+  resources :post_categories
+  resources :categories
   resources :todos
   root to: 'application#welcome'
-  devise_for :users, :controlelrs => {registrations: 'registrations', omniauth_callbacks: 'callbacks'}
+  devise_for :users, :controllers => {registrations: 'registrations', omniauth_callbacks: 'callbacks'}
   devise_scope :user do 
     get 'login', to: 'devise/sessions#new'
     get 'signup', to: 'devise/registrations#new'
