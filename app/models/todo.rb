@@ -3,6 +3,10 @@ class Todo < ApplicationRecord
     has_many :todo_categories
     has_many :categories, through: :todo_categories
 
+    validates :title, presence: true
+    validates :time, presence: true 
+    validates :time, uniqueness: { scope: :datetime, message: "take care, don't double book yourself!" }
+
     def categories_attributes=(category_attributes)
         category_attributes.values.each do |category_attribute|
             if category_attribute["name"].present?
