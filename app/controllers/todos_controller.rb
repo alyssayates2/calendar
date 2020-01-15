@@ -14,7 +14,7 @@ class TodosController < ApplicationController
   
     # GET /todos/new
     def new
-      @todo = Todo.new
+      @todo = current_user.todos.build
     end
   
     # GET /todos/1/edit
@@ -23,35 +23,18 @@ class TodosController < ApplicationController
   
     # POST /todos
     def create
-      @todo = Todo.new(todo_params)
-  
-      respond_to do |format|
-        if @todo.save
-          format.html { redirect_to @todo, notice: 'Todo was successfully created.' }
-        else
-          format.html { render :new }
-        end
-        redirect_to @todo
-      end
+      todo = Todo.create(todo_params)
+      redirect_to todo
     end
   
     # PATCH/PUT /todos/1
     def update
-      respond_to do |format|
-        if @todo.update(todo_params)
-          format.html { redirect_to @todo, notice: 'Todo was successfully updated.' }
-        else
-          format.html { render :edit }
-        end
-      end
+      
     end
   
     # DELETE /todos/1
     def destroy
       @todo.destroy
-      respond_to do |format|
-        format.html { redirect_to todos_url, notice: 'Todo was successfully destroyed.' }
-      end
     end
   
     private

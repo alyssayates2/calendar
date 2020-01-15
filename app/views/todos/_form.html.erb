@@ -11,32 +11,23 @@
       </div>
     <% end %>
   
-    <div class="field">
       <%= f.label :title %>
-      <%= f.text_field :title %>
-    </div>
-
-    <div class="field">
+      <%= f.text_field :title %><br>
+  
       <%= f.label :time %>
-      <%= f.datetime_field :time %>
-    </div>
+      <%= f.datetime_field :time %><br>
 
-    <div class="field">
-      <%= f.collection_check_boxes :category_ids, Category.all, :id, :name %>
-      <%= f.fields_for :categories, todo.categories.build do |category_form| %>
-        <%= category_form.label "Category" %>
-        <%= category_form.text_field :name %>
+      <%= f.collection_select :category_ids, Category.all, :id, :name %><br>
+
+      <%= f.fields_for :category, @todo.build_category do |category_form| %>
+        <%= category_form.label :name, "Category" %>
+        <%= category_form.text_field :name %><br>
       <% end %>
-    </div>
   
-    <div class="field">
       <%= f.label :attended %>
-      <%= f.check_box :attended %>
-    </div>
+      <%= f.check_box :attended %><br>
   
-    <div class="actions">
-      <%= f.submit %>
-    </div>
+      <%= f.submit %><br>
   <% end %>
   
 
