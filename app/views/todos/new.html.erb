@@ -2,4 +2,7 @@
 
 <%= render 'form', todo: @todo %>
 
-<%= link_to 'Back', todos_path %>
+<%= link_to 'Your Todos', todos_path(@category, @todo) %>
+
+# <div class=:field_with_errors">
+#     <input type="text"
