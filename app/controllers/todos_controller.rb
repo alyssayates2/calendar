@@ -23,9 +23,7 @@ class TodosController < ApplicationController
   
     # POST /todos
     def create
-      binding.pry
       @todo = current_user.todos.build(todo_params)
-      binding.pry
       redirect_to todo_path(@todo)
     end
   
