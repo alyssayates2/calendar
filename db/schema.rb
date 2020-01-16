@@ -18,14 +18,9 @@ ActiveRecord::Schema.define(version: 2020_01_15_160308) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "todo_categories", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "todos", force: :cascade do |t|
     t.string "title"
-    t.boolean "attended"
+    t.boolean "attended", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.datetime "time"
@@ -41,7 +36,6 @@ ActiveRecord::Schema.define(version: 2020_01_15_160308) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "username"
     t.string "provider"
     t.string "uid"
     t.index ["email"], name: "index_users_on_email", unique: true
