@@ -23,8 +23,10 @@ class TodosController < ApplicationController
   
     # POST /todos
     def create
-      todo = Todo.create(todo_params)
-      redirect_to todo
+      binding.pry
+      @todo = current_user.todos.build(todo_params)
+      binding.pry
+      redirect_to todo_path(@todo)
     end
   
     # PATCH/PUT /todos/1
@@ -43,7 +45,7 @@ class TodosController < ApplicationController
       end
   
       def todo_params
-        params.require(:todo).permit(:title, :attended, :time, category_ids:[], categories_attributes: [:name])
+        params.require(:todo).permit(:title, :attended, :time, :category_id, category_attributes: [:name])
       end
   end
   
