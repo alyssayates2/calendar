@@ -1,19 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @todo.title %>
-</p>
+<p> Title: <%= @todo.title %></p>
 
-<p>
-  <strong>Time:</strong>
-  <%= @todo.time.strftime("%a %-m/%-d/%y: %H:%M %Z") %>
-</p>
+<p> Category: <%= @todo.category %></p>
 
-<p>
-  <strong>Attended:</strong>
-  <%= @todo.attended %>
-</p>
+<p> Time: <%= @todo.time.strftime("%a %-m/%-d/%y: %H:%M %Z") %></p>
+
+<p>Attended: <%= @todo.attended %></p>
 
 <%= link_to 'Edit', edit_todo_path(@todo) %> |
 <%= link_to 'Back', todos_path %>

@@ -6,6 +6,7 @@
     <% @todos.each do |todo| %>
       <ul>
         <h3><%= todo.title %></h3>
+        Category: <%= todo.category.name %><br>
         <%= todo.time.strftime("%A, %B %e, %y at %I:%M %p") %><br>
         Done/Attended: <%= todo.attended %><br>
         <%= link_to 'Show', todo %>

@@ -4,12 +4,12 @@ class TodosController < ApplicationController
   
     # GET /todos
     def index
-      @todos = Todo.all
+      @todos = current_user.todos
     end
   
     # GET /todos/1
     def show
-      @todo = Todo.find(params[:id])
+      @todo = current_user.todos.find_by(id: params[:id])
     end
   
     # GET /todos/new
