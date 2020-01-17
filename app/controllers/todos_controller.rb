@@ -19,6 +19,7 @@ class TodosController < ApplicationController
   
     # GET /todos/1/edit
     def edit
+      @todo = Todo.find_by(params[:id])
     end
   
     # POST /todos
@@ -33,7 +34,12 @@ class TodosController < ApplicationController
   
     # PATCH/PUT /todos/1
     def update
-      
+      @todo = Todo.find(params[:id])
+      if @todo.update(todo_params)
+        redirect_to @todo
+      else
+        render :edit
+     end
     end
   
     # DELETE /todos/1

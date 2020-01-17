@@ -1,5 +1,10 @@
 <h1>Editing Todo</h1>
 
+<%= form_for @todo do |f| %>
+    <%= f.label :attended %>
+    <%= f.check_box :attended %>
+<% end %>
+
 <%= render 'form', todo: @todo %>
 
 <%= link_to 'Show', @todo %> |
