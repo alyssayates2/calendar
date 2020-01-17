@@ -44,7 +44,9 @@ class TodosController < ApplicationController
   
     # DELETE /todos/1
     def destroy
+      @todo = Todo.find_by(params[:id])
       @todo.destroy
+      redirect_to todos_path
     end
   
     private
