@@ -7,6 +7,9 @@
 
   <%= f.collection_select :category_id, Category.all, :id, :name %><br>
 
+  <%= f.label :attended %>
+  <%= f.check_box :attended %>
+
   <%= f.fields_for :category, @todo.build_category do |category_form| %>
     <%= category_form.label :name, "Category" %>
     <%= category_form.text_field :name %><br>

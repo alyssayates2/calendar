@@ -1,5 +1,4 @@
 class TodosController < ApplicationController
-    before_action :set_todo, only: [:show, :edit, :update, :destroy]
     before_action :authenticate_user!
   
     def index
@@ -15,7 +14,12 @@ class TodosController < ApplicationController
     end
   
     def edit
-      @todo = Todo.find_by(params[:id])
+      @todo = current_user.todos.find_by(params[:id])
+      if @todo
+        render 'edit'
+      else 
+        redirect_to todos_path
+      end
     end
   
     def create
@@ -28,7 +32,8 @@ class TodosController < ApplicationController
     end
   
     def update
-      @todo = Todo.find(params[:id])
+      @todo = current_user.todos.find(params[:id])
+      binding.pry
       if @todo.update(todo_params)
         redirect_to @todo
       else
@@ -37,8 +42,10 @@ class TodosController < ApplicationController
     end
   
     def destroy
-      @todo = Todo.find_by(params[:id])
-      @todo.destroy
+      @todo = current_user.todos.find_by(params[:id])
+      if @todo
+        @todo.destroy
+      end 
       redirect_to todos_path
     end
   
