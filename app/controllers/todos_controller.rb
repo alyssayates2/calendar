@@ -24,7 +24,11 @@ class TodosController < ApplicationController
     # POST /todos
     def create
       @todo = current_user.todos.build(todo_params)
-      redirect_to todo_path(@todo)
+      if @todo.save
+        redirect_to todo_path(@todo)
+      else 
+        render :new 
+      end 
     end
   
     # PATCH/PUT /todos/1
