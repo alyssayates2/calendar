@@ -1,26 +1,21 @@
-# README
+Welcome to the spot of documenting and keeping track of your events!
 
-TEST
+To get started...
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+git clone this repository into your environment.
 
-Things you may want to cover:
+cd into 'calendar'
 
-* Ruby version
+run bundle install
 
-* System dependencies
+run the server and open your browser
 
-* Configuration
+sign up
 
-* Database creation
+log in
 
-* Database initialization
+create your to-do
 
-* How to run the test suite
+check attended once complete
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+edit/delete your posts
