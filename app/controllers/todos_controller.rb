@@ -33,7 +33,6 @@ class TodosController < ApplicationController
   
     def update
       @todo = current_user.todos.find(params[:id])
-      binding.pry
       if @todo.update(todo_params)
         redirect_to @todo
       else
